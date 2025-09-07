@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Compositions by Taals</title>
+
+  <!-- Load Devanagari font -->
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari&display=swap" rel="stylesheet">
+  
+
+  <style>
+     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9fdfa;
+      color: #ce7612;
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      color: #d16b17c2;
+      margin-bottom: 1.5rem;
+    }
+
+    .compositions ul {
+      list-style: none;
+      padding-left: 1rem;
+    }
+
+    .toggle-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: Arial, sans-serif;
+      font-size: 1rem;
+      color: #2e7d32;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0.2rem 0;
+      width: 100%;
+      text-align: left;
+      outline-offset: 2px;
+      user-select: none;
+    }
+
+    .toggle-btn::before {
+      content: "▶";
+      display: inline-block;
+      transition: transform 0.3s ease;
+      color: #4a6f3a;
+    }
+
+    .toggle-btn.expanded::before {
+      transform: rotate(90deg);
+    }
+
+    .types-list, .compositions-list {
+      display: none; /* hidden by default */
+      margin-left: 1.2rem;
+      border-left: 2px solid #d0e6c7;
+      padding-left: 1rem;
+    }
+
+        .types-list, .compositions-list {
+    display: none; /* hide when hidden attribute is present */
+    }
+
+    .types-list:not([hidden]),
+    .compositions-list:not([hidden]) {
+    display: block; /* show when hidden attribute is removed */
+    }
+
+    .compositions-list li {
+      font-weight: 400;
+      color: #4a6f3a;
+      padding-left: 1.2rem;
+      position: relative;
+      margin: 0.3rem 0;
+    }
+
+    .compositions-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #2e7d32;
+    }
+
+    /* Optional: hover effect on buttons */
+    .toggle-btn:hover {
+      color: #1b4d20;
+    }
+  </style>
+</head>
+<body>
+  <h1> तालों के रचनाएँ (Compositions -- According to their 'Taal')</h1>
+
+  <div class="compositions">
+    <ul class="taals-list">
+      <li>
+        <button class="toggle-btn" aria-expanded="false" aria-controls="teentaal-types" aria-label="Toggle teentaal compositions"> तीनताल (Teentaal)</button>
+        <ul id="teentaal-types" class="types-list" hidden>
+          <li>
+            <button class="toggle-btn" aria-expanded="false" aria-controls="teentaal-kayda" aria-label="Toggle teentaal kayda"> क़ायदा (Kayda) </button>
+            <ul id="teentaal-kayda" class="compositions-list" hidden>
+              <li>Kayda Composition 1</li>
+              <li>Kayda Composition 2</li>
+            </ul>
+          </li>
+          <li>
+            <button class="toggle-btn" aria-expanded="false" aria-controls="teentaal-rela" aria-label="Toggle teentaal rela"> रेला (Rela) </button>
+            <ul id="teentaal-rela" class="compositions-list" hidden>
+              <li>Rela Composition 1</li>
+            </ul>
+          </li>
+          <li>
+            <button class="toggle-btn" aria-expanded="false" aria-controls="teentaal-gat" aria-label="Toggle teentaal gat"> गत् (Gat) </button>
+            <ul id="teentaal-gat" class="compositions-list" hidden>
+              <li>Gat Composition 1</li>
+              <li>Gat Composition 2</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <button class="toggle-btn" aria-expanded="false" aria-controls="jhaptaal-types" aria-label="Toggle jhaptaal compositions"> झपताल (Jhaptaal)</button>
+        <ul id="jhaptaal-types" class="types-list" hidden>
+          <li>
+            <button class="toggle-btn" aria-expanded="false" aria-controls="jhaptaal-kayda" aria-label="Toggle jhaptaal kayda">क़ायदा (Kayda) </button>
+            <ul id="jhaptaal-kayda" class="compositions-list" hidden>
+              <li>Kayda Composition A</li>
+            </ul>
+          </li>
+          <li>
+            <button class="toggle-btn" aria-expanded="false" aria-controls="jhaptaal-rela" aria-label="Toggle jhaptaal rela">रेला (Rela)</button>
+            <ul id="jhaptaal-rela" class="compositions-list" hidden>
+              <li>Rela Composition B</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <button class="toggle-btn" aria-expanded="false" aria-controls="roopak-types" aria-label="Toggle roopak compositions"> रूपक (Roopak) </button>
+        <ul id="roopak-types" class="types-list" hidden>
+          <li>
+            <button class="toggle-btn" aria-expanded="false" aria-controls="roopak-gat" aria-label="Toggle roopak gat">गत् (Gat)</button>
+            <ul id="roopak-gat" class="compositions-list" hidden>
+              <li>Gat Composition X</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <button class="toggle-btn" aria-expanded="false" aria-controls="keherwa-types" aria-label="Toggle keherwa compositions"> केहरवा (Keherwa)</button>
+        <ul id="keherwa-types" class="types-list" hidden>
+          <li>
+            <button class="toggle-btn" aria-expanded="false" aria-controls="keherwa-kayda" aria-label="Toggle keherwa kayda">क़ायदा (Kayda)</button>
+            <ul id="keherwa-kayda" class="compositions-list" hidden>
+              <li>Kayda Composition Y</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <button class="toggle-btn" aria-expanded="false" aria-controls="dadra-types" aria-label="Toggle dadra compositions">दादरा (Dadra)</button>
+        <ul id="dadra-types" class="types-list" hidden>
+          <li>
+            <button class="toggle-btn" aria-expanded="false" aria-controls="dadra-rela" aria-label="Toggle dadra rela">रेला (Rela)</button>
+            <ul id="dadra-rela" class="compositions-list" hidden>
+              <li>Rela Composition Z</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+
+      <li>
+        <button class="toggle-btn" aria-expanded="false" aria-controls="ektaal-types" aria-label="Toggle ektaal compositions">एकताल (Ektaal)</button>
+        <ul id="ektaal-types" class="types-list" hidden>
+          <li>
+            <button class="toggle-btn" aria-expanded="false" aria-controls="ektaal-gat" aria-label="Toggle ektaal gat">गत् (Gat)</button>
+            <ul id="ektaal-gat" class="compositions-list" hidden>
+              <li>Gat Composition M</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    // Toggle expand/collapse
+document.addEventListener('DOMContentLoaded', () => {
+  const buttons = document.querySelectorAll('.toggle-btn');
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const expanded = button.getAttribute('aria-expanded') === 'true';
+      button.setAttribute('aria-expanded', String(!expanded));
+      button.classList.toggle('expanded');
+      const contentId = button.getAttribute('aria-controls');
+      const content = document.getElementById(contentId);
+      if (content) {
+        if (content.hasAttribute('hidden')) {
+          content.removeAttribute('hidden');
+        } else {
+          content.setAttribute('hidden', '');
+        }
+      }
+    });
+  });
+});
+  </script>
+</body>
+</html>
+
+
