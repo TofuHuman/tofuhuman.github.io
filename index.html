@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>beats and all</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
     * {
       margin: 0;
@@ -15,7 +15,7 @@
 
     body, html {
       height: 100%;
-      font-family: 'Merriweather', serif;
+      font-family: 'Playfair Display', serif;
       display: flex;
       overflow: hidden;
     }
@@ -23,22 +23,24 @@
     .left {
       background: white;
       flex: 1;
+      position: relative;
+      padding: 40px 30px;
       display: flex;
-      justify-content: center;
-      align-items: center;
+      align-items: flex-start; /* align items at the top */
     }
 
     .left h1 {
-      font-weight: 700;
-      font-size: 4rem;
+      font-weight: 400;  /* lighter weight */
+      font-size: 3rem;
       text-transform: lowercase;
       color: #2e7d32; /* forest green */
       letter-spacing: 0.1em;
+      margin: 0;
     }
 
     .right {
       flex: 1;
-      background: url('https://github.com/tofuhuman/tofuhuman.github.io/blob/main/little-flower-niagara.jpg?raw=true') no-repeat center center;
+      background: url('https://github.com/tofuhuman/tofuhuman.github.io/blob/main/nature.jpg?raw=true') no-repeat center center;
       background-size: cover;
     }
 
@@ -52,6 +54,12 @@
         height: 50vh;
         width: 100%;
       }
+      .left {
+        padding: 20px 15px;
+      }
+      .left h1 {
+        font-size: 2.5rem;
+      }
     }
   </style>
 </head>
@@ -62,4 +70,3 @@
   <div class="right"></div>
 </body>
 </html>
-
