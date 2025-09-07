@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,29 +25,142 @@
 
     .left {
       background: white;
-      flex: 1 1 40%; /* allow flex grow, shrink, and start at 40% */
-      min-width: 320px; /* don’t get too narrow */
-      max-width: 600px; /* max size for large screens */
+      flex: 1 1 40%;
+      min-width: 1100px;
+      max-width: 2000px;
       padding: 60px 40px;
       display: flex;
       align-items: flex-start;
       justify-content: center;
     }
 
-    .left h1 {
-      font-weight: 400;
-      font-size: clamp(2rem, 5vw, 3.5rem); /* fluid font size */
-      text-transform: lowercase;
-      color: #2e7d32;
-      letter-spacing: 0.1em;
+    .left .content {
       max-width: 80%;
     }
 
+    .left h1 {
+      font-weight: 400;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      text-transform: lowercase;
+      color: #2e7d32;
+      letter-spacing: 0.1em;
+      margin-bottom: 1.5rem;
+    }
+
+    .left p {
+      font-family: Arial, sans-serif;
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      color: #4a6f3a;
+      line-height: 1.5;
+    }
+
+    /* Navigation menu */
+    .left nav ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .left nav ul li {
+      margin-bottom: 12px;
+      font-family: Arial, sans-serif;
+      color: #2e7d32;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .left nav ul li a {
+      font-family: Arial, sans-serif;
+      color: #2e7d32;
+      text-decoration: underline;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .left nav ul li a:hover {
+      color: #eb530c;
+    }
+
+    /* Parent menu item (non-link) */
+    .left nav ul li span.menu-parent {
+      font-weight: 500;
+      text-decoration: none;
+      cursor: default;
+      display: inline-block;
+      margin-bottom: 6px;
+      color: #eb530c;
+    }
+
+    /* Submenu */
+    .left nav ul ul {
+      list-style: none;
+      font-weight: 500;
+      margin-left: 30px;
+      margin-top: 8px;
+      padding-left: 0;
+      font-weight: 500;
+    }
+
+    .left nav ul ul li {
+      margin-bottom: 8px;
+      position: relative;
+      padding-left: 20px;
+      font-weight: 500;
+      color: #4667d3;
+    }
+
+    /* Right-pointing arrow before submenu items */
+    .left nav ul ul li::before {
+      content: "▶";
+      position: absolute;
+      left: 0;
+      color: #5875d3;
+      font-weight: 500;
+      line-height: 1;
+    }
+
+    .left nav ul ul li a {
+      font-family: Arial, sans-serif;
+      color: #697fc7;
+      text-decoration: underline;
+      transition: color 0.3s ease;
+      font-weight: 500;
+    }
+
+    /* Right side */
     .right {
       flex: 1 1 60%;
-      min-width: 300px;
-      background: url('https://github.com/tofuhuman/tofuhuman.github.io/blob/main/little-flower-niagara.jpg?raw=true') no-repeat center center;
+      min-width: 700px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 60px 40px;
+    }
+
+    .image-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 600px;
+    }
+
+    .img1 {
+      width: 100%;
+      height: 90vh;
+      background-image: url('https://github.com/tofuhuman/tofuhuman.github.io/blob/main/little-flower-niagara.jpg?raw=true');
+      background-position: center;
+      background-repeat: no-repeat;
       background-size: cover;
+      border-radius: 8px;
+    }
+
+    .caption {
+      margin-top: 8px;
+      font-size: 0.8rem;
+      color: #4a6f3a;
+      font-family: Arial, sans-serif;
+      text-align: center;
     }
 
     /* Responsive adjustments */
@@ -57,21 +172,50 @@
         max-width: 100%;
         min-width: 100%;
         flex: none;
-        height: 50vh;
         padding: 30px 20px;
       }
+      .left {
+        padding-bottom: 0;
+      }
       .left h1 {
-        max-width: 100%;
         font-size: clamp(1.5rem, 8vw, 3rem);
         text-align: center;
+      }
+      .right {
+        padding-top: 20px;
+        justify-content: center;
+      }
+      .img1 {
+        height: 50vh;
       }
     }
   </style>
 </head>
 <body>
   <div class="left">
-    <h1>beats and all</h1>
+    <div class="content">
+      <h1>beats and all</h1>
+      <p>Welcome online traveller! I am experimenting with this space to share overlapping themes of art, philosophy and science.</p>
+      <nav>
+        <ul>
+          <li><a href="#">Indian Classical Rhythms and Beats via The Tabla</a></li>
+          <li>
+            <span class="menu-parent">~ Blog Posts ~</span>
+            <ul>
+              <li><a href="#">Streams and Their Ways</a></li>
+            </ul>
+          </li>
+          <li><a href="#">About</a></li>
+        </ul>
+      </nav>
+    </div>
   </div>
-  <div class="right"></div>
+
+  <div class="right">
+    <div class="image-container">
+      <div class="img1"></div>
+      <p class="caption"> Little flowers at the Floral Showcase, Niagara Falls, Ontario</p>
+    </div>
+  </div>
 </body>
 </html>
