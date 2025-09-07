@@ -3,67 +3,62 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Beats and All</title>
+  <title>beats and all</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');
 
-    body, html {
+    * {
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
       height: 100%;
-      font-family: 'Roboto', sans-serif;
-      color: #2f4f4f;
-      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1350&q=80') no-repeat center center fixed;
-      background-size: cover;
+      font-family: 'Merriweather', serif;
+      display: flex;
+      overflow: hidden;
+    }
+
+    .left {
+      background: white;
+      flex: 1;
       display: flex;
       justify-content: center;
       align-items: center;
-      text-align: center;
     }
 
-    .container {
-      background: rgba(255, 255, 255, 0.8);
-      padding: 40px 60px;
-      border-radius: 12px;
-      max-width: 400px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    }
-
-    h1 {
-      margin-bottom: 20px;
-      font-size: 3em;
+    .left h1 {
+      font-weight: 700;
+      font-size: 4rem;
+      text-transform: lowercase;
       color: #2e7d32; /* forest green */
+      letter-spacing: 0.1em;
     }
 
-    p {
-      font-size: 1.2em;
-      margin-bottom: 30px;
-      color: #4a6f3a;
+    .right {
+      flex: 1;
+      background: url('https://github.com/tofuhuman/tofuhuman.github.io/blob/main/nature.jpg?raw=true') no-repeat center center;
+      background-size: cover;
     }
 
-    .btn {
-      background-color: #2e7d32;
-      color: white;
-      padding: 12px 30px;
-      border: none;
-      border-radius: 30px;
-      font-size: 1.1em;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      text-decoration: none;
-      display: inline-block;
-    }
-
-    .btn:hover {
-      background-color: #1b4d20;
+    /* Responsive for smaller screens */
+    @media (max-width: 768px) {
+      body, html {
+        flex-direction: column;
+      }
+      .left, .right {
+        flex: none;
+        height: 50vh;
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Beats and All</h1>
-    <p>Feel the rhythm of nature</p>
-    <a href="#" class="btn">Explore</a>
+  <div class="left">
+    <h1>beats and all</h1>
   </div>
+  <div class="right"></div>
 </body>
 </html>
