@@ -50,10 +50,13 @@
     }
 
     .toggle-btn::before {
-      content: "▶";
-      display: inline-block;
-      transition: transform 0.3s ease;
-      color: #4a6f3a;
+    content: "›";  /* simpler, less bold arrow */
+    display: inline-block;
+    transition: transform 0.3s ease;
+    color: #4a6f3a;
+    margin-right: 6px; /* a bit spacing before text */
+    font-weight: normal;
+    font-size: 1rem;
     }
 
     .toggle-btn.expanded::before {
