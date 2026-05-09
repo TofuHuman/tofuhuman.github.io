@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tabla Compositions Devanagari</title>
+  <meta name="description" content="A minimal Devanagari page for tabla taals, compositions, and audio placeholders." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root, [data-theme="light"] {
+      --bg: #e5eee2;
+      --surface: #fcfbf8;
+      --surface-2: #e6f1f5;
+      --surface-3: #ebf3eb;
+      --text: #221f19;
+      --muted: #6a665d;
+      --line: rgba(34, 31, 25, 0.12);
+      --accent: #01696f;
+      --accent-soft: rgba(1, 105, 111, 0.1);
+      --shadow: 0 8px 26px rgba(18, 15, 10, 0.06);
+      --radius: 18px;
+      --radius-sm: 12px;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-12: 3rem;
+      --body: "Times New Roman", Times, "Noto Serif Devanagari", serif;
+    }
+
+    [data-theme="dark"] {
+      --bg: #171614;
+      --surface: #1f1d1a;
+      --surface-2: #27241f;
+      --text: #ebe7df;
+      --muted: #b6b0a5;
+      --line: rgba(235, 231, 223, 0.14);
+      --accent: #6db4bc;
+      --accent-soft: rgba(109, 180, 188, 0.13);
+      --shadow: 0 12px 30px rgba(0, 0, 0, 0.24);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--body);
+      line-height: 1.7;
+      font-size: 1.08rem;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+    }
+
+    a, button { transition: all 180ms ease; }
+    .wrap {
+      width: min(760px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 2rem 0 4rem;
+    }
+
+    .bar {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: var(--space-8);
+    }
+
+    .theme-toggle {
+      min-width: 44px;
+      min-height: 44px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--text);
+      box-shadow: var(--shadow);
+      cursor: pointer;
+    }
+
+    .statement {
+      margin-bottom: var(--space-12);
+      padding: var(--space-6);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      font-size: clamp(1.35rem, 1.1rem + 1vw, 2rem);
+      letter-spacing: 0.01em;
+    }
+
+    .taal-row {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .taal-grid {
+      display: grid;
+      gap: var(--space-6);
+    }
+
+    .taal-card {
+      padding: var(--space-6);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    /* Let the heading box grow and use remaining width */
+
+    .taal-box {
+      display: block;
+      padding: 0.95rem 1rem;
+      margin-bottom: var(--space-4);
+      background: var(--surface-3);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      color: var(--text);
+      text-decoration: none;
+      font-size: clamp(1.15rem, 1.05rem + 0.5vw, 1.5rem);
+    }
+
+    .taal-box:hover,
+    .taal-box:focus-visible {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      color: var(--accent);
+      transform: translateY(-1px);
+    }
+
+    .composition-grid {
+      display: grid;
+      gap: var(--space-3);
+    }
+
+    .composition-row {
+      display: grid;
+      gap: var(--space-3);
+      padding: var(--space-4);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      background: transparent;
+    }
+
+    .subhead-box {
+      display: block;
+      min-height: 44px;
+      padding: 0.85rem 1rem;
+      background: transparent;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .subhead-box:hover,
+    .subhead-box:focus-visible {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .audio-box {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      min-width: 11rem;
+      padding: 0.8rem 1rem;
+      background: var(--surface-2);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    .audio-box:hover,
+    .audio-box:focus-visible {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      color: var(--accent);
+    }
+
+    .underline {
+        text-decoration: underline;
+    }
+
+    @media (min-width: 620px) {
+      .composition-row {
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .statement,
+      .taal-card {
+        padding: var(--space-4);
+      }
+
+      .audio-box {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="bar">
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Switch theme">◐</button>
+    </div>
+    <p class="statement"> <span class="underline">ABGMVM मध्यम पूर्ण -- क्रियात्मक । अभ्यास </span></p>
+
+    <section class="taal-grid" aria-label="ताल सूची">
+      <article class="taal-card" id="teentaal">
+        <a class="taal-box" href="#teentaal">(1) निम्न्लिखित तालों के ठेके तालि देकर दुगुन बजाना:</a>
+        <div class="composition-grid">
+          <div class="composition-row">
+            <a class="subhead-box" href="#">
+                <span class="underline">झूमरा</span> (14 beats; 3 - 4 - 3 - 4; x - x - o - x)<br>
+                धिं ऽधा तेरेकेटे । 
+                धिं धिं धाग  तेरेकेटे । 
+                थिं ऽता तेरेकेटे । 
+                धिं धिं धाग  तेरेकेटे । 
+            </a>
+            <a class="audio-box" href="#">Audio link</a>
+          </div>
+          <div class="composition-row">
+            <a class="subhead-box" href="#"> <span class="underline">धमार</span> (14 beats; 5 - 2 - 3 - 4; x - x - o - x)<br>
+            क धे टे धे टे । धा ऽ । ग दिं ना। दिं न ता ऽ । </a>
+            <a class="audio-box" href="#">Audio link</a>
+          </div>
+                  <div class="composition-row">
+            <a class="subhead-box" href="#"><span class="underline">पंजाबि / सितर्खनि / अद्धा </span>(16 beats; 4 - 4 - 4 - 4; x - x - o - x)<br>
+             धा ऽधिं ऽगे धा । धा ऽधिं ऽगे धा । धा ऽथिं ऽके ता । ता  ऽधिं ऽगे धा । <br>
+             धा ऽ धिं ऽ धा । धा ऽ धिं ऽ धा । धा ऽ थिं ऽ ता । ता  ऽ धिं ऽ धा । 
+             
+            <a class="audio-box" href="#">Audio link</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="taal-card" id="roopak">
+        <a class="taal-box" href="#roopak">(3) निम्न्लिखित तालों के साथ विलम्बित लय में मुखडे लगा कर सम पर आने का अभ्यास: </a>
+        <div class="composition-grid">
+          <div class="composition-row">
+            <a class="subhead-box" href="#"><span class="underline">तीनताल</span> (तिहाई from 1st; 5th; 9th and 13th beats) </a>
+            <a class="audio-box" href="#">Audio link</a>
+          </div>
+          <div class="composition-row">
+            <a class="subhead-box" href="#"><span class="underline">एकताल</span> </a>
+            <a class="audio-box" href="#">Audio link</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="taal-card" id="teentaal">
+        <a class="taal-box" href="#teentaal">(5-A) तीनताल में विस्तार : </a>
+        <div class="composition-grid">
+          <div class="composition-row">
+            <a class="subhead-box" href="#"> Full presentation (~15 mins) </a>
+            <a class="audio-box" href="#">Audio link</a>
+          </div>
+          <div class="composition-row">
+            <a class="subhead-box" href="#"><span class="underline">पेश्कार</span> (35 BPM) <br>
+            धिंऽक्रे धिंना ऽनाधाग धिंना । धाऽत्रेके धाति ऽनाधाग घिंना । ... 
+            </a>
+            <a class="audio-box" href="#">Audio link</a>
+          </div>
+          <div class="composition-row">
+            <a class="subhead-box" href="#"><span class="underline">तिस्रजाति कायदा</span> (35 BPM) <br>
+            धिगधिनागेने धागतेरेकेटे धातिगघेतग धिगधिनागेने । <br>
+            धाऽक्रेधेटे गेनाधातेगेना धातिगघेतग थिंकथिंनाकेने । ...
+            </a>
+            <a class="audio-box" href="#">Audio link</a>
+          </div>
+            <div class="composition-row">
+            <a class="subhead-box" href="#"><span class="underline">चतस्रजाती कायदा</span> (75 BPM) <br>
+              घेनातेटे घेनानाग धिंनागेना त्रेकेधेटे । <br>
+              धात्रेकेधे टेतागेना नाधिगधि धाडागेना ।
+
+            </a>
+            <a class="audio-box" href="#">Audio link</a>
+          </div>
+            <div class="composition-row">
+            <a class="subhead-box" href="#"><span class="underline">रेला</span> (75 BPM) <br>
+            धाऽतेरेकेटेघेरे धेरेधेरेघेरेनाग धाऽतेटेघेरेनाग ताऽतेटेघेरेनाग । <br>
+            ताऽतेरेकेटेकेरे थेरेथेरेकेरेनाक धाऽतेटेघेरेनाग ताऽतेटेघेरेनाग ।
+          </a>
+            <a class="audio-box" href="#">Audio link</a>
+          </div>
+          <div class="composition-row">
+            <a class="subhead-box" href="#"><span class="underline">गत​</span> (100 BPM) </a>
+            <a class="audio-box" href="#">Audio link</a>
+          </div>
+          <div class="composition-row">
+            <a class="subhead-box" href="#"><span class="underline">ठुकडा</span> (130 BPM) </a>
+            <a class="audio-box" href="#">Audio link</a>
+          </div>
+          <div class="composition-row">
+            <a class="subhead-box" href="#">  <span class="underline">चक्रधार ठुकडा</span> (130 BPM) </a>
+            <a class="audio-box" href="#">Audio link</a>
+         </div>
+          <div class="composition-row">
+            <a class="subhead-box" href="#"> <span class="underline">चक्रधार</span>  (130 BPM) </a>
+            <a class="audio-box" href="#">Audio link</a>
+         </div>
+        </div>
+      </article>
+
+
+      <article class="taal-card" id="roopak">
+        <div class="taal-row"></div>
+        <a class="taal-box" href="#roopak">(5-B) रूपक ताल में विस्तार : </a>      
+        </div>
+          <div class="composition-row">
+            <a class="subhead-box" href="#"> Full presentation (~5 mins) </a>
+            <a class="audio-box" href="#">Audio link</a>
+          </div>
+            <div class="composition-grid">
+          <div class="composition-row">
+            <a class="subhead-box" href="#"> <span class="underline">कायदा</span> (70 BPM) <br>
+            धिगधिना त्रेकेधेटे धाडागेने । धात्रेकेधे टेतागेना। नाधिगधि धाडागेना ।
+            </a>
+            <a class="audio-box" href="#">Audio link</a>
+          </div>
+          <div class="composition-row">
+            <a class="subhead-box" href="#"><span class="underline">रेला</span> (70 BPM) </a>
+            <a class="audio-box" href="#">Audio link</a>
+          </div>
+          <div class="composition-row">
+            <a class="subhead-box" href="#"><span class="underline">ठुकडा</span> (70 BPM) </a>
+            <a class="audio-box" href="#">Audio link</a>
+          </div>
+        </div>
+      </article>
+
+       <article class="taal-card" id="jhaaptaal">
+        <div class="taal-row"></div>
+        <a class="taal-box" href="#jhaaptaal">(5-C) झपताल में विस्तार : </a>      
+        </div>
+          <div class="composition-row">
+            <a class="subhead-box" href="#"> Full presentation (~5 mins) </a>
+            <a class="audio-box" href="#">Audio link</a>
+          </div>
+            <div class="composition-grid">
+          <div class="composition-row">
+            <a class="subhead-box" href="#"> <span class="underline">कायदा</span> (70 BPM) <br>
+            कताधाति धागेनाधा । तिधागेना गेनाधाग थुंनाकेना । ...  <br>
+            </a>
+            <a class="audio-box" href="#">Audio link</a>
+          </div>
+                    <div class="composition-row">
+            <a class="subhead-box" href="#"> <span class="underline">कायदा</span> (70 BPM) <br>
+            धातेटेधा तेटेधाधा । तेटेतेटे धातिधाधा थुंनाकेना । ...  <br>
+            </a>
+            <a class="audio-box" href="#">Audio link</a>
+          </div>
+          <div class="composition-row">
+            <a class="subhead-box" href="#"><span class="underline">रेला</span> (70 BPM) </a>
+            <a class="audio-box" href="#">Audio link</a>
+          </div>
+          <div class="composition-row">
+            <a class="subhead-box" href="#"><span class="underline">ठुकडा</span> (70 BPM) </a>
+            <a class="audio-box" href="#">Audio link</a>
+          </div>
+        </div>
+      </article>
+
+        <article class="taal-card" id="ektaal">
+        <div class="taal-row"></div>
+        <a class="taal-box" href="#ektaal">(5-D) एकताल में विस्तार : </a>      
+        </div>
+          <div class="composition-row">
+            <a class="subhead-box" href="#"> Full presentation (~5 mins) </a>
+            <a class="audio-box" href="#">Audio link</a>
+          </div>
+            <div class="composition-grid">
+          <div class="composition-row">
+            <a class="subhead-box" href="#"> <span class="underline">कायदा</span> (70 BPM) <br>
+            धाऽऽधा तेटेधाधा । तेटेतेटे गेनाधाते । टेतागेना थिंनाकेना । ... <br>
+            </a>
+            <a class="audio-box" href="#">Audio link</a>
+          </div>
+          <div class="composition-row">
+            <a class="subhead-box" href="#"><span class="underline">रेला</span> (70 BPM) <br>
+            धाऽतेरेकेटेघेरे धेरेधेरेघेरेनाग । <br>
+            धाऽतेटेघेरेनाग धिंतेटेघेरेनाग। <br>
+            धेरेधेरेघेरेनाग थिंतेटेघेरेनाग । ... <br>
+            </a>
+            <a class="audio-box" href="#">Audio link</a>
+          </div>
+          <div class="composition-row">
+            <a class="subhead-box" href="#"><span class="underline">ठुकडा</span> (70 BPM) </a>
+            <a class="audio-box" href="#">Audio link</a>
+          </div>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <script>
+    (() => {
+      const root = document.documentElement;
+      const button = document.querySelector('[data-theme-toggle]');
+      let theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      const paint = () => {
+        root.setAttribute('data-theme', theme);
+        button.setAttribute('aria-label', theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode');
+      };
+      paint();
+      button.addEventListener('click', () => {
+        theme = theme === 'dark' ? 'light' : 'dark';
+        paint();
+      });
+    })();
+  </script>
+</body>
+</html>
